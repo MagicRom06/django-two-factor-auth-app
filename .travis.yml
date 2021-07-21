@@ -1,0 +1,11 @@
+language: python
+python:
+  - "3.8"
+env:
+  - DJANGO_SETTINGS_MODULE="two_factor_auth.settings"
+services:
+  - postgresql
+  - docker
+before_script: pip install docker-compose
+script:
+  - docker-compose run web sh -c "python manage.py test"
