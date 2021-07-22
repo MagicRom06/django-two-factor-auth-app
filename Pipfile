@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 django = "*"
 docker-compose = "*"
+django-allauth-2fa = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.8"
