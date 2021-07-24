@@ -2,18 +2,29 @@
 {% load i18n %}
 
 {% block content %}
-<h1>
-  {% trans "Two-Factor Authentication" %}
-</h1>
+<div class="container d-flex align-items-center justify-content-center">
+	<div class="row mt-4 w-100">
+		<div class="offset-lg-2 col-lg-8">
+			<div id="login" class="square-setup">
+				<div class="square-title">
+					<h1>
+						{% trans "Two-Factor Authentication" %}
+					</h1>
 
-<form method="post">
-  {% csrf_token %}
-  {{ form.non_field_errors }}
-  {{ form.otp_token.label }}:
-  {{ form.otp_token }}
+					<form method="post">
+						{% csrf_token %}
+						{{ form.non_field_errors }}
+						{{ form.otp_token.label }}:
+						{{ form.otp_token }}
 
-  <button type="submit">
-    {% trans 'Authenticate' %}
-  </button>
-</form>
+						<button type="submit">
+							{% trans 'Authenticate' %}
+						</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}
