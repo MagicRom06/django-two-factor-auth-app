@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'django_otp.plugins.otp_static',
     'allauth_2fa',
     'users.apps.UsersConfig',
-    'home.apps.HomeConfig'
+    'home.apps.HomeConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -160,3 +161,4 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

@@ -2,13 +2,39 @@
 {% block title %}Home{% endblock title %}
 {% block body %}
 <div class="container">
-	<div class="row align-items-center mt-4">
+	<div class="row mt-4">
+		{% if user.is_authenticated %}
+		<div class="col-lg-6 mt-4">
+			<div id="logout" class="square d-flex align-items-center justify-content-center">
+				<div class="square-title">
+					<a href="{% url 'account_logout' %}"><button class="btn-1"><span class="home_span">LOGOUT</span></button></a>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 mt-4">
+			<div id="welcome" class="square d-flex align-items-center justify-content-center">
+				<div class="square-title">
+					<a href="{% url 'two-factor-setup' %}"><button class="btn-1"><span style="color:green;font-size:20px;" class="home_span">Activate 2fa Auth</span></button></a>
+				</div>
+			</div>
+		</div>
+		{% else %}
 		<div class="col-lg-6">
-			<div id="login" class="square">Login</div>
+			<div id="login" class="square d-flex align-items-center justify-content-center">
+				<div class="square-title">
+					<a href="{% url 'account_login' %}"><button class="btn-1"><span class="home_span">LOGIN</span></button></a>
+				</div>
+			</div>
 		</div>
 		<div class="col-lg-6">
-			<div id="signup" class="square">Signup</div>
+			<div id="signup" class="square d-flex align-items-center justify-content-center">
+				<div class="square-title">
+					<a href="{% url 'account_signup' %}"><button class="btn-1"><span class="home_span">SIGNUP</span></button></a>
+				</div>
+			</div>
 		</div>
+
+		{% endif %}
 	</div>
 </div>
 {% endblock body %}
