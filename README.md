@@ -2,7 +2,7 @@
 A simple django app using allauth_2fa package
 
 # Requirements
-The app require python 3.8, django 3.5 with django-allauth-2fa module.<br>
+The app require python 3.8, django 3.2 with django-allauth-2fa module.<br>
 The goal is to simply test 2fa authentification<br>
 The database is PostgreSQL
 
