@@ -26,7 +26,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ['DEBUG']
+if os.environ['ENV'] == 'PROD':
+    DEBUG = 0
+else:
+    DEBUG = 1
+
 
 ALLOWED_HOSTS = [
     'two-factorauth-app.herokuapp.com',
