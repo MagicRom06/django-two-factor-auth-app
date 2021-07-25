@@ -25,8 +25,6 @@ SECRET_KEY = 'django-insecure-v$j9vq()um(9(s@livndq!9l+&)7@8k8o87bm9fp2(^-6g8$ms
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ACCOUNT_ADAPTER = 'allauth_2fa.adapter.OTPAdapter'
-SITE_ID = 1
 
 ALLOWED_HOSTS = []
 
@@ -48,7 +46,9 @@ INSTALLED_APPS = [
     'django_otp.plugins.otp_totp',
     'django_otp.plugins.otp_static',
     'allauth_2fa',
-    'users.apps.UsersConfig'
+    'users.apps.UsersConfig',
+    'home.apps.HomeConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -141,4 +141,24 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Auth settings
+ACCOUNT_ADAPTER = 'allauth_2fa.adapter.OTPAdapter'
+SITE_ID = 1
 AUTH_USER_MODEL = "users.CustomUser"
+LOGIN_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT = 'home'
+
+AUTHENTIFICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+# static assets settings
+STATIC_URL = '/assets/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'assets'),]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
