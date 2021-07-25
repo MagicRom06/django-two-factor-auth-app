@@ -16,7 +16,7 @@ services:
       - djangonetwork
     environment:
       - SECRET_KEY="${SECRET_KEY}"
-      - DEBUG="${DEBUG}"
+      - ENV="${ENV}"
   db:
     image: postgres
     container_name: db
