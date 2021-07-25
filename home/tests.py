@@ -1,9 +1,9 @@
-from django.test import TestCase
 from django.contrib.auth import get_user_model
+from django.test import TestCase
 from django.urls import reverse
 
-
 # Create your tests here.
+
 
 class LoginPageTest(TestCase):
 
@@ -30,7 +30,7 @@ class SignupPageTest(TestCase):
         self.assertEqual(
             get_user_model().objects.all().count(), 1)
         self.assertEqual(
-            get_user_model().objects.all()[0].username, 'test')
+            get_user_model().objects.all()[0].username, new_user.username)
 
 
 class HomePageTest(TestCase):
@@ -41,7 +41,7 @@ class HomePageTest(TestCase):
                 password='test12345'
         )
 
-    def test_home_page_status_code(self): 
+    def test_home_page_status_code(self):
         self.client.login(
             username=self.user.username,
             password=self.user.password
