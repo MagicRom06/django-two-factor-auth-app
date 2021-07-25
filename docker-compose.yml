@@ -3,7 +3,7 @@ version: '3.8'
 services:
   web:
     build: .
-    command: python /django-two-factor-auth-app/manage.py runserver 0.0.0.0:8000
+    command: gunicorn two_factor_auth.wsgi -b 0.0.0.0:8000
     volumes:
       - .:/django-two-factor-auth-app
     ports:
@@ -14,6 +14,9 @@ services:
       - db:db
     networks:
       - djangonetwork
+    environment:
+      - SECRET_KEY="${SECRET_KEY}"
+      - DEBUG="${DEBUG}"
   db:
     image: postgres
     container_name: db

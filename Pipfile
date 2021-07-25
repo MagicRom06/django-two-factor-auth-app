@@ -11,6 +11,10 @@ docker-compose = "*"
 django-allauth-2fa = "*"
 psycopg2-binary = "*"
 django-crispy-forms = "*"
+isort = "*"
+whitenoise = "*"
+gunicorn = "*"
+dj-database-url = "*"
 
 [requires]
 python_version = "3.8"
